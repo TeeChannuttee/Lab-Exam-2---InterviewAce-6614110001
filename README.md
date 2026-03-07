@@ -1,4 +1,4 @@
-# 🧠 InterviewAce — AI Interview Coach
+# InterviewAce — AI Interview Coach
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.10+-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-3.0+-0175C2?style=for-the-badge&logo=dart&logoColor=white)
@@ -10,59 +10,59 @@
 
 ---
 
-## ✨ Features Overview
+## Features Overview
 
-### 🤖 AI-Powered
+### AI-Powered
 | Feature | Description |
 |---|---|
-| 💬 **AI Chat Coach** | Real-time conversational coaching with GPT-4 |
-| 🎯 **AI Question Generation** | Dynamic questions based on role, level, and type |
-| 📊 **AI Answer Evaluation** | Score + feedback + ideal answer for every response |
-| 🗣️ **Voice Interview** | Speech-to-Text → AI evaluation pipeline |
-| 🔮 **Readiness Score** | AI-calculated interview readiness from all data |
-| 📈 **Skill Gap Analysis** | Identifies weaknesses + recommends resources |
-| 💡 **AI Tips of the Day** | 14 rotating daily interview tips |
+| **AI Chat Coach** | Real-time conversational coaching with GPT-4 |
+| **AI Question Generation** | Dynamic questions based on role, level, and type |
+| **AI Answer Evaluation** | Score + feedback + ideal answer for every response |
+| **Voice Interview** | Speech-to-Text to AI evaluation pipeline |
+| **Readiness Score** | AI-calculated interview readiness from all data |
+| **Skill Gap Analysis** | Identifies weaknesses + recommends resources |
+| **AI Tips of the Day** | 14 rotating daily interview tips |
 
-### 😊 ML Kit Integration
+### ML Kit Integration
 | Feature | Description |
 |---|---|
-| 📷 **Face Detection** | Real-time confidence tracking via face analysis |
-| 📝 **Resume OCR Scanner** | Scan physical resumes with text recognition |
-| 🎥 **Video Interview Sim** | Combined face + voice + AI evaluation |
+| **Face Detection** | Real-time confidence tracking via face analysis |
+| **Resume OCR Scanner** | Scan physical resumes with text recognition |
+| **Video Interview Sim** | Combined face + voice + AI evaluation |
 
-### 🎮 Gamification
+### Gamification
 | Feature | Description |
 |---|---|
-| 🏅 **XP & Levels** | 10 levels from Beginner → Interview God |
-| 🔥 **Daily Streaks** | Track consecutive practice days |
-| 🏆 **11 Achievement Badges** | Unlock badges for milestones |
-| 📅 **Practice Calendar** | GitHub-style contribution graph |
-| 🏆 **Leaderboard** | Podium ranking with XP scores |
-| 🎁 **Daily Rewards** | XP bonus + streak multiplier |
-| 🃏 **Flip Card Flashcards** | 10 Q&A cards with 3D flip animation |
+| **XP & Levels** | 10 levels from Beginner to Interview God |
+| **Daily Streaks** | Track consecutive practice days |
+| **11 Achievement Badges** | Unlock badges for milestones |
+| **Practice Calendar** | GitHub-style contribution graph |
+| **Leaderboard** | Podium ranking with XP scores |
+| **Daily Rewards** | XP bonus + streak multiplier |
+| **Flip Card Flashcards** | 10 Q&A cards with 3D flip animation |
 
-### 🎨 Premium UI/UX
+### Premium UI/UX
 | Feature | Description |
 |---|---|
-| ✨ **Particle Background** | Floating orb glassmorphism effect |
-| 🌊 **Liquid Onboarding** | 4-page animated onboarding flow |
-| 🎬 **Animated Splash** | Elastic logo bounce with expanding rings |
-| 🎊 **Confetti Animation** | 80 particles with gravity physics |
-| 📊 **Skill Radar Chart** | Multi-axis polygon visualization |
-| 🧩 **Mock Scenarios** | 6 interview types (Panel, Pressure, etc.) |
+| **Particle Background** | Floating orb glassmorphism effect |
+| **Liquid Onboarding** | 4-page animated onboarding flow |
+| **Animated Splash** | Elastic logo bounce with expanding rings |
+| **Confetti Animation** | 80 particles with gravity physics |
+| **Skill Radar Chart** | Multi-axis polygon visualization |
+| **Mock Scenarios** | 6 interview types (Panel, Pressure, etc.) |
 
-### 📡 Technical
+### Technical
 | Feature | Description |
 |---|---|
-| 📊 **Analytics Dashboard** | Score trends, category breakdown, performance |
-| 📤 **Data Export** | CSV & JSON export functionality |
-| 📄 **Report Generator** | Formatted interview assessment report |
-| 🔔 **Notifications** | Daily practice reminders |
-| 🌐 **i18n (EN/TH)** | Full bilingual string support |
+| **Analytics Dashboard** | Score trends, category breakdown, performance |
+| **Data Export** | CSV & JSON export functionality |
+| **Report Generator** | Formatted interview assessment report |
+| **Notifications** | Daily practice reminders |
+| **i18n (EN/TH)** | Full bilingual string support |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Clean Architecture + BLoC Pattern
@@ -70,26 +70,26 @@ Clean Architecture + BLoC Pattern
 
 ```mermaid
 graph TB
-    subgraph Presentation["🎨 Presentation Layer"]
+    subgraph Presentation["Presentation Layer"]
         Pages["Pages<br/>(19 screens)"]
         Widgets["Widgets<br/>(CustomPainters, Animations)"]
         BLoC["BLoC<br/>(State Management)"]
     end
 
-    subgraph Domain["🧠 Domain Layer"]
+    subgraph Domain["Domain Layer"]
         Entities["Entities"]
         UseCases["Use Cases"]
         Repos["Repository Interfaces"]
     end
 
-    subgraph Data["💾 Data Layer"]
+    subgraph Data["Data Layer"]
         Remote["Remote DataSource<br/>(OpenAI API via Dio)"]
         Local["Local DataSource<br/>(Drift SQLite)"]
         Cache["Cache<br/>(Hive + SharedPrefs)"]
         RepoImpl["Repository Implementations"]
     end
 
-    subgraph External["🌐 External"]
+    subgraph External["External"]
         OpenAI["OpenAI GPT-4"]
         MLKit["Google ML Kit"]
         STT["Speech-to-Text"]
@@ -142,7 +142,7 @@ sequenceDiagram
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 lib/
@@ -180,7 +180,7 @@ lib/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |---|---|
@@ -201,7 +201,7 @@ lib/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Flutter 3.10+
@@ -212,8 +212,8 @@ lib/
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd interview_ace
+git clone https://github.com/TeeChannuttee/Lab-Exam-2---InterviewAce-6614110001.git
+cd Lab-Exam-2---InterviewAce-6614110001
 
 # Install dependencies
 flutter pub get
@@ -231,7 +231,25 @@ flutter run
 
 ---
 
-## 📊 Stats
+## Testing
+
+```bash
+# Run all tests (53 tests)
+flutter test
+
+# Unit Tests (BLoC + Mocking with mocktail)
+flutter test test/features/history/presentation/bloc/history_bloc_test.dart
+
+# Widget Tests (Form Validation with GlobalKey<FormState>)
+flutter test test/features/auth/presentation/pages/login_page_test.dart
+
+# Integration Tests (E2E)
+flutter test integration_test/app_test.dart
+```
+
+---
+
+## Stats
 
 | Metric | Count |
 |---|---|
@@ -247,12 +265,12 @@ flutter run
 
 ---
 
-## 📝 License
+## License
 
 MIT License — free to use for educational purposes.
 
 ---
 
 <p align="center">
-  Built with ❤️ using Flutter + OpenAI + ML Kit
+  Built with Flutter + OpenAI + ML Kit
 </p>
