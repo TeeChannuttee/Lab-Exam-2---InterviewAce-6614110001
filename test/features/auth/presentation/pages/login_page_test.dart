@@ -1,10 +1,18 @@
+// =============================================================
+// Widget Test: Login Form Validation
+// ทดสอบว่า UI ฟอร์ม Login ตรวจสอบข้อมูลได้ถูกต้อง
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า Email ว่าง → แสดง error
+// - ตรวจสอบว่า Email ไม่มี @ → แสดง error
+// - ตรวจสอบว่า Password สั้นเกิน → แสดง error
+// - ตรวจสอบว่ากรอกถูกต้อง → ผ่าน validation
+// - ใช้ GlobalKey<FormState> ตามเกณฑ์ที่อาจารย์กำหนด
+// =============================================================
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-// Widget Test: Login Form Validation
-// Tests that the form validates email and password correctly
-// Uses GlobalKey<FormState> as required by exam spec
 
 void main() {
   // Disable Google Fonts HTTP fetching in tests
@@ -66,6 +74,7 @@ void main() {
   }
 
   group('Login Form Widget Tests', () {
+    // ทดสอบ: กดปุ่ม Login โดยไม่กรอกอะไร → ต้องแสดง error ทั้ง 2 ช่อง
     testWidgets('shows email validation error when empty', (tester) async {
       final formKey = GlobalKey<FormState>();
       final emailCtrl = TextEditingController();
@@ -85,6 +94,7 @@ void main() {
       expect(find.text('Please enter your password'), findsOneWidget);
     });
 
+    // ทดสอบ: กรอก Email ไม่มี @ → ต้องแสดง 'Please enter a valid email'
     testWidgets('shows invalid email error', (tester) async {
       final formKey = GlobalKey<FormState>();
       final emailCtrl = TextEditingController();
@@ -104,6 +114,7 @@ void main() {
       expect(find.text('Please enter a valid email'), findsOneWidget);
     });
 
+    // ทดสอบ: กรอก Password สั้นกว่า 6 ตัว → ต้องแสดง error
     testWidgets('shows short password error', (tester) async {
       final formKey = GlobalKey<FormState>();
       final emailCtrl = TextEditingController();
@@ -123,6 +134,7 @@ void main() {
       expect(find.text('Password must be at least 6 characters'), findsOneWidget);
     });
 
+    // ทดสอบ: กรอกถูกต้องทั้งหมด → ผ่าน validation + เรียก onSubmit
     testWidgets('valid form passes validation and calls onSubmit', (tester) async {
       final formKey = GlobalKey<FormState>();
       final emailCtrl = TextEditingController();
@@ -146,6 +158,7 @@ void main() {
       expect(submitted, isTrue);
     });
 
+    // ทดสอบ: UI แสดงองค์ประกอบครบ (2 TextFormField + 1 ปุ่ม)
     testWidgets('form renders all expected elements', (tester) async {
       final formKey = GlobalKey<FormState>();
       final emailCtrl = TextEditingController();

@@ -1,14 +1,23 @@
+// =============================================================
+// Integration Test: ทดสอบ End-to-End
+// ทดสอบการทำงานของแอปแบบครบวงจร
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่าแอปเปิดได้ไม่ crash
+// - ตรวจสอบว่า Form Validation ทำงานได้จริงในแอป
+// - ตรวจสอบว่า Navigation ไป-กลับ ทำงานถูกต้อง
+// - ตรวจสอบว่า Dark Mode toggle สลับได้จริง
+// =============================================================
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// Integration Tests for InterviewAce
-// Tests real app flow: open app → navigate → fill form → validate → navigate back
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
+  // กลุ่ม 1: ทดสอบเปิดแอปได้สำเร็จ
   group('App Launch Integration Tests', () {
     testWidgets('app builds and shows a Scaffold', (tester) async {
       // We test with a MaterialApp since real app needs DI and env
@@ -29,6 +38,7 @@ void main() {
     });
   });
 
+  // กลุ่ม 2: ทดสอบ Form Validation ในแอปจริง
   group('Form Validation Integration Tests', () {
     testWidgets('empty form shows validation errors', (tester) async {
       final formKey = GlobalKey<FormState>();
@@ -130,6 +140,7 @@ void main() {
     });
   });
 
+  // กลุ่ม 3: ทดสอบ Navigation (ไป-กลับ ระหว่างหน้า)
   group('Navigation Integration Tests', () {
     testWidgets('navigate from list to detail and back', (tester) async {
       await tester.pumpWidget(
@@ -194,6 +205,7 @@ void main() {
     });
   });
 
+  // กลุ่ม 4: ทดสอบสลับ Dark Mode
   group('Theme Switching Integration Tests', () {
     testWidgets('dark mode toggle changes theme', (tester) async {
       bool isDark = true;

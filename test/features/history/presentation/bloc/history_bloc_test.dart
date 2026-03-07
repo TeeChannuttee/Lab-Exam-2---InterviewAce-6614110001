@@ -1,3 +1,15 @@
+// =============================================================
+// Unit Test: HistoryBloc
+// ทดสอบ Business Logic ของ BLoC ที่จัดการประวัติสัมภาษณ์
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า BLoC โหลดข้อมูลจาก Repository ได้ถูกต้อง
+// - ตรวจสอบว่าเมื่อ API ล้มเหลว จะแสดง Error ไม่ใช่ crash
+// - ตรวจสอบว่าลบ session ได้ + โหลดรายละเอียด session ได้
+// - ใช้ Mocking (mocktail) จำลอง Repository ไม่ต้องต่อ API จริง
+// - ใช้ dartz Either<Failure, Success> จัดการ error แบบ functional
+// =============================================================
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -55,6 +67,7 @@ void main() {
   ];
 
   group('HistoryBloc', () {
+    // ทดสอบ: โหลดประวัติสำเร็จ → ต้องได้ข้อมูล 2 sessions
     blocTest<HistoryBloc, HistoryState>(
       'emits [HistoryLoading, HistoryLoaded] when LoadHistoryEvent succeeds',
       build: () {
@@ -70,6 +83,7 @@ void main() {
       ],
     );
 
+    // ทดสอบ: โหลดประวัติล้มเหลว → ต้องแสดง Error message ไม่ crash
     blocTest<HistoryBloc, HistoryState>(
       'emits [HistoryLoading, HistoryError] when LoadHistoryEvent fails',
       build: () {
@@ -85,6 +99,7 @@ void main() {
       ],
     );
 
+    // ทดสอบ: ลบ session → ต้องเรียก deleteSession ใน Repository จริง
     blocTest<HistoryBloc, HistoryState>(
       'deletes session and reloads history',
       build: () {
@@ -100,6 +115,7 @@ void main() {
       },
     );
 
+    // ทดสอบ: ดูรายละเอียด session → ต้องโหลด session + questions มาแสดง
     blocTest<HistoryBloc, HistoryState>(
       'loads session detail with questions',
       build: () {
@@ -118,6 +134,7 @@ void main() {
       ],
     );
 
+    // ทดสอบ: ล้างประวัติทั้งหมด → ต้องลบทุก session แล้วแสดงรายการว่าง
     blocTest<HistoryBloc, HistoryState>(
       'clears all history sends delete for each session',
       setUp: () {
@@ -139,6 +156,7 @@ void main() {
     );
   });
 
+  // ทดสอบ: State object isEmpty ทำงานถูกต้อง
   group('HistoryLoaded', () {
     test('isEmpty returns true when no sessions', () {
       final state = HistoryLoaded(sessions: []);
@@ -151,6 +169,7 @@ void main() {
     });
   });
 
+  // ทดสอบ: คำนวณคะแนนเฉลี่ยถูกต้อง (80+60)/2 = 70
   group('HistoryDetailLoaded', () {
     test('averageScore calculates correctly', () {
       final state = HistoryDetailLoaded(
