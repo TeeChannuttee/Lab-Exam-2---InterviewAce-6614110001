@@ -196,8 +196,14 @@ void main() {
       expect(find.text('Score: 85'), findsOneWidget);
       expect(find.text('AI Feedback: Great use of STAR method'), findsOneWidget);
 
-      // Navigate back
-      await tester.tap(find.byIcon(Icons.arrow_back));
+      // Navigate back using the back button in AppBar
+      final backButton = find.byType(BackButton);
+      if (backButton.evaluate().isNotEmpty) {
+        await tester.tap(backButton);
+      } else {
+        // Fallback: find any IconButton in the AppBar area
+        await tester.tap(find.byType(IconButton).first);
+      }
       await tester.pumpAndSettle();
 
       // Back to list
