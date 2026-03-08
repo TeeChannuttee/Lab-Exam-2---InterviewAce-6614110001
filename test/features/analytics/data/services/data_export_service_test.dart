@@ -1,3 +1,14 @@
+// =============================================================
+// Unit Test: DataExportService
+// ทดสอบระบบ Export ข้อมูลสัมภาษณ์เป็น CSV, JSON, Summary Report
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า Export CSV มี header ถูกต้อง + ข้อมูลครบ
+// - ตรวจสอบว่า Export JSON มีโครงสร้างถูกต้อง + format สวย
+// - ตรวจสอบว่า Summary Report มีข้อมูลภาพรวมครบ
+// - ตรวจสอบว่าระบบรองรับกรณีไม่มี session (empty list)
+// - ตรวจสอบว่าคำนวณคะแนนเฉลี่ยถูกต้อง (85+72)/2 = 78%
+// =============================================================
 import 'package:flutter_test/flutter_test.dart';
 import 'package:interview_ace/features/analytics/data/services/data_export_service.dart';
 import 'package:interview_ace/features/interview/domain/entities/interview_entities.dart';

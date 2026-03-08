@@ -1,3 +1,15 @@
+// =============================================================
+// Unit Test: Interview Entities (Domain Layer)
+// ทดสอบ Data Model ที่เป็นหัวใจของแอป
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า InterviewSession สร้างได้ถูกต้อง มี UUID
+// - ตรวจสอบว่า copyWith อัพเดทเฉพาะ field ที่ระบุ ไม่เปลี่ยนอันอื่น
+// - ตรวจสอบว่า InterviewQuestion เก็บคำถาม+คำตอบ+คะแนนได้
+// - ตรวจสอบว่า ResumeProfile เก็บผลวิเคราะห์เรซูเม่ได้
+// - ตรวจสอบว่าคำนวณคะแนนเฉลี่ยถูกต้อง (90+70)/2 = 80
+// - ใช้หลัก Clean Architecture: Domain Layer ต้องไม่พัง
+// =============================================================
 import 'package:flutter_test/flutter_test.dart';
 import 'package:interview_ace/features/interview/domain/entities/interview_entities.dart';
 

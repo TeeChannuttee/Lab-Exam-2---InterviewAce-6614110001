@@ -1,3 +1,14 @@
+// =============================================================
+// Unit Test: SettingsBloc
+// ทดสอบ BLoC ที่จัดการตั้งค่า Dark Mode เเละ ภาษา
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า Dark Mode เริ่มต้นเป็น false (Light Mode)
+// - ตรวจสอบว่า toggle Dark Mode สลับค่าได้ถูกต้อง
+// - ตรวจสอบว่าเปลี่ยนภาษาได้ (en ↔ th)
+// - ตรวจสอบว่าค่าถูกบันทึกลง SharedPreferences
+// - ตรวจสอบว่าปิดเปิดแอปใหม่ค่ายังคงอยู่ (persistence)
+// =============================================================
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:interview_ace/features/settings/presentation/bloc/settings_bloc.dart';

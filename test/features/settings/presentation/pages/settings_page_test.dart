@@ -1,3 +1,14 @@
+// =============================================================
+// Widget Test: Settings Page
+// ทดสอบว่าหน้าตั้งค่าแสดง UI ครบถ้วน
+//
+// ทำไมต้องรัน?
+// - ตรวจสอบว่า Dark Mode Switch แสดงผลถูกต้อง
+// - ตรวจสอบว่ามีตัวเลือกภาษา English/ไทย
+// - ตรวจสอบว่ามีปุ่ม Clear Cache + Clear All Data
+// - ตรวจสอบว่า About section แสดงชื่อแอป + เวอร์ชัน
+// - ใช้ MockBloc จำลอง SettingsBloc ไม่ต้องต่อ storage จริง
+// =============================================================
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
